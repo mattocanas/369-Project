@@ -10,19 +10,22 @@ from datetime import datetime, timedelta
 import time
 
 
-def search_nyt_articles(api_key, section, begin_date, end_date, limit=3):
+def search_nyt_articles(
+    api_key, section, begin_date, end_date, limit=3
+):  # change the limit to the number of artilces
+    # you want from each week
     base_url = "https://api.nytimes.com/svc/search/v2/articlesearch.json"
     fq = f'news_desk:("{section}")'
     params = {
         "fq": fq,
         "begin_date": begin_date,
         "end_date": end_date,
-        "sort": "newest",  # Change sort order to newest
+        "sort": "relevance",  # sort by newest, oldest, or relevance
         "api-key": api_key,
     }
     try:
         response = requests.get(base_url, params=params)
-        response.raise_for_status()  # Raises an HTTPError if the HTTP request returned an unsuccessful status code
+        response.raise_for_status()  # Raises an error if the HTTP request returned an failed status code
         articles = response.json().get("response", {}).get("docs", [])
         return articles[:limit]
     except requests.RequestException as e:
@@ -30,9 +33,12 @@ def search_nyt_articles(api_key, section, begin_date, end_date, limit=3):
         return []
 
 
-def get_weekly_articles(api_key, section, year):
-    start_date = datetime(year, 9, 1)
-    end_date = datetime(year + 1, 1, 1)
+def get_weekly_articles(api_key, section, start_year):
+    start_date = datetime(start_year, 1, 1)
+    end_date = datetime(
+        start_year + 10, 1, 1
+    )  # change form +10, to + the number of years after
+    # start_year you want to get data from
 
     all_articles = []
 
@@ -53,19 +59,19 @@ def get_weekly_articles(api_key, section, year):
             all_articles.append(article_data)
 
         start_date += timedelta(days=7)
-        time.sleep(12)  # Adding a delay to respect rate limits
+        time.sleep(12)  # NYT API requires 12 seconds betweeen calls
 
     return pd.DataFrame(all_articles)
 
 
 def main():
-    api_key = "YHfI1weuElAq3KfFoQVDA2bDQ7ggkdsS"  # Replace with your actual API key
+    api_key = "YHfI1weuElAq3KfFoQVDA2bDQ7ggkdsS"
     section = "Business"
-    year = 2019
+    start_year = 2010
 
-    df = get_weekly_articles(api_key, section, year)
-    display(df)
-    df.to_csv("nyt_articles_2019-2023.csv")
+    df = get_weekly_articles(api_key, section, start_year)
+    # print(df)
+    df.to_csv("nyt_articles_2010-2019.csv")
 
 
 if __name__ == "__main__":

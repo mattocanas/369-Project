@@ -4,22 +4,22 @@ from transformers import pipeline
 
 def nytSentiment():
     # Load the CSV file into a pandas DataFrame
-    nyt_df = pd.read_csv("nyt_articles.csv")
+    nyt_df = pd.read_csv("nyt_articles_2010-2019.csv")
 
     # Initialize the Hugging Face sentiment analysis pipeline
     sentiment_analysis = pipeline("sentiment-analysis")
 
-    # Function to analyze sentiment and return the result with score
+    # analyze sentiment and return the result with score
     def analyze_sentiment(text):
-        # Check if text is empty
+        # check if text is empty
         if pd.isna(text) or text.strip() == "":
             return None, None
-        if len(text) > 512:  # Truncate if more than 512 characters
+        if len(text) > 512:
             text = text[:512]
         result = sentiment_analysis(text)[0]
         return result["label"], result["score"]
 
-    # Apply the function while skipping empty titles or lead paragraphs
+    # Apply the function while skipping empty titles or snippets
     nyt_df["title_sentiment"], nyt_df["title_score"] = zip(
         *nyt_df["title"].apply(
             lambda x: analyze_sentiment(x)
@@ -40,7 +40,7 @@ def nytSentiment():
 
 
 def guardianSentiment():
-    guardian_df = pd.read_csv("guardian_articles.csv")
+    guardian_df = pd.read_csv("guardian_full_articles.csv")
 
     # Initialize the Hugging Face sentiment analysis pipeline
     sentiment_analysis = pipeline("sentiment-analysis")
@@ -75,4 +75,10 @@ def guardianSentiment():
     guardian_df.to_csv("guardian_sentiment.csv", index=False)
 
 
-guardianSentiment()
+def main():
+    nytSentiment()
+    guardianSentiment()
+
+
+if __name__ == "__main__":
+    main()
