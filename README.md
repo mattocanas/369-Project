@@ -61,7 +61,7 @@ These are the two CSV files that will be used for downstream analysis.
 
 ## Jaxon's section
 
-## Dashboard
+## Dashboard Overview
 The purpose of the dashboard is to create an interactive way for users to manipulate the data. The dashboard displays three charts. 
 (1) Newspaper Sentiment Summary
 (2) Sentiment Probability Raw Data
@@ -75,7 +75,7 @@ The user is also able to filter these charts using four filters.
 
 To access the dashboard from a web browser, you will run the main script: app_rev8.py. The assets folder contains style parameters for the application. There is a file with support functions and data that performs the analysis for variables selected by the user in the data_support_rev6 file. 
 
-# app.py
+### app.py
 The app.py script is the main script. Run this to generate the dashboard! The main packages required are pandas and dash. In this scipt, dash is used to customize the style of the application, create callbacks to make the application interactive, and use dash core components/ html components to define the application.
 
 Dash uses three technologies: flask, react.js, and plotly.js.
