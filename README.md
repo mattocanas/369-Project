@@ -64,21 +64,29 @@ These are the two CSV files that will be used for downstream analysis.
 ## Dashboard Overview
 The purpose of the dashboard is to create an interactive way for users to manipulate the data. The dashboard displays three charts. 
 
-(1) Newspaper Sentiment Summary
+1. Newspaper Sentiment Summary
 
-(2) Sentiment Probability Raw Data
+2. Sentiment Probability Raw Data
 
-(3) Sentiment v. Index Stock % Change
+3. Sentiment v. Index Stock % Change
+
+![image](https://github.com/mattocanas/369-Project/assets/98493997/137ddd1d-e144-4cb0-9a9d-76d1ebe55dd7)
+
+![image](https://github.com/mattocanas/369-Project/assets/98493997/d69bd3f8-62c0-4bb6-86a9-c90c6a81c7a5)
+
+![image](https://github.com/mattocanas/369-Project/assets/98493997/cc6af2d1-b219-454a-b1b0-9302672a02c3)
 
 The user is also able to filter these charts using four filters.
 
-(1) Source (ie. New York Times or Guardian)
+1. Source (ie. New York Times or Guardian)
 
-(2) Interval (Monthly or Annually)
+2. Interval (Monthly or Annually)
 
-(3) Trend (% Negative Titles, % Negative Articles, % Negative Article with Positive Title, and % Opposite Sentiment) 
+3. Trend (% Negative Titles, % Negative Articles, % Negative Article with Positive Title, and % Opposite Sentiment) 
 
-(4) Stock Index (NASDAQ, S&P 500, and Dow Jones) 
+4. Stock Index (NASDAQ, S&P 500, and Dow Jones)
+
+   ![image](https://github.com/mattocanas/369-Project/assets/98493997/040538c2-ba58-4c06-afcd-79e539db180e)
 
 To access the dashboard from a web browser, you will run the main script: app_rev8.py. The assets folder contains style parameters for the application. There is a file with support functions and data that performs the analysis for variables selected by the user in the data_support_rev6 file. 
 
@@ -112,6 +120,9 @@ html.P(children="", className="header-emoji")
 ***Note:***
 
 className pulls style information from the style.css file provided in the assets folder.
+
+![image](https://github.com/mattocanas/369-Project/assets/98493997/7390e939-5c47-4f38-a154-57fd3f271b23)
+
 
 3. Create interactive components like dropdowns and checklists using dash core components.
 
