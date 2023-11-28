@@ -27,6 +27,7 @@ The output of this, assuming you have not changed the script, will be a file nam
 
 **NOTE:** This script, depending on the number of years being pulled, takes 2-4 hours to run. This is becuase we have to pause for 12 seconds after each API call to avoid rate limitations.
 
+-----
 ### guardian.py
 Next, we will collect data from the guardian. Rate limiting is not an issue here, so simply set your start/end dates. In the case of the script in this repository, we will gather stories in the business section from 2010-2023.
 
@@ -35,6 +36,7 @@ _guardian.py_ pulls article titles, publication dates, and URLs from The Guardia
 
 To run this, use ```python3 guardian.py```. A file named _guardian_full_articles.csv_ will be saved to the directory and uses to analyze news sentiments.
 
+------
 ### sentiment_analysis.py
 This script will run the two previously saved CSV files through the Hugging Face transformers sentiment-analysis pipeline to classify article titles and artricle content as **POSITIVE** or **NEGATIVE**.
 
