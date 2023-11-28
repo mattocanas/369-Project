@@ -35,7 +35,7 @@ _guardian.py_ pulls article titles, publication dates, and URLs from The Guardia
 
 To run this, use ```python3 guardian.py```. A file named _guardian_full_articles.csv_ will be saved to the directory and uses to analyze news sentiments.
 
-## sentiment_analysis.py
+### sentiment_analysis.py
 This script will run the two previously saved CSV files through the Hugging Face transformers sentiment-analysis pipeline to classify article titles and artricle content as **POSITIVE** or **NEGATIVE**.
 
 This repository contains the correct CSV files such that all you need to do is run this file, and not have to edit any filename or run any previously discussed scripts.
