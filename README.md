@@ -3,6 +3,8 @@
 
 # Documentation
 
+## Background
+
 ## Package Requirements
 * requests
 * json
