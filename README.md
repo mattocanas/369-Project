@@ -59,7 +59,54 @@ After confirming you are running the correct CSV files through the pipeline, sim
 
 These are the two CSV files that will be used for downstream analysis.
 
+## Jaxon's section
 
+## Dashboard
+The purpose of the dashboard is to create an interactive way for users to manipulate the data. The dashboard displays three charts. 
+(1) Newspaper Sentiment Summary
+(2) Sentiment Probability Raw Data
+(3) Sentiment v. Index Stock % Change
 
+The user is also able to filter these charts using four filters.
+(1) Source (ie. New York Times or Guardian)
+(2) Interval (Monthly or Annually)
+(3) Trend (% Negative Titles, % Negative Articles, % Negative Article with Positive Title, and % Opposite Sentiment) 
+(4) Stock Index (NASDAQ, S&P 500, and Dow Jones) 
 
+To access the dashboard from a web browser, you will run the main script: app_rev8.py. The assets folder contains style parameters for the application. There is a file with support functions and data that performs the analysis for variables selected by the user in the data_support_rev6 file. 
 
+# app.py
+The app.py script is the main script. Run this to generate the dashboard! The main packages required are pandas and dash. In this scipt, dash is used to customize the style of the application, create callbacks to make the application interactive, and use dash core components/ html components to define the application.
+
+Dash uses three technologies: flask, react.js, and plotly.js.
+
+There are four sections of the script.
+1. Process data
+2. Style application with CSS.
+3. Define content of the application using the layout function.
+4. Create callbacks to make the application interactive.
+
+The layout is defined by app.layout(). 
+
+Key script features:
+1. Create dash instance.
+app = Dash(__name__, external_stylesheets=external_stylesheets)
+
+2. Define application layout. Dash HTML Components module provides python wrappers to create elements like paragraphs or headings!
+html.P(children="", className="header-emoji")
+***Note:***
+className pulls style information from the style.css file provided in the assets folder.
+
+3. Create interactive components like dropdowns and checklists using dash core components.
+
+dcc.Dropdown(
+            id="interval-selection",
+            options=[
+                {'label': 'Month', 'value': 'YearMonth'},
+                {'label': 'Year', 'value': 'Year'}
+            ],
+
+4. Update the dashboard using callback functions using the app.callback decorator.
+- Define inputs and outputs using @app.callback()
+- Update charts using inputs
+- The process_data_rev8 script handles the data manipulation to update the plots! 
