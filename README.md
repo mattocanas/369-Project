@@ -1,9 +1,12 @@
-# 369-Project
+# Changes in News Sentiment Over the Last Decade and its Effect on Financial Markets
 
 
 # Documentation
 
 ## Background
+For this project, we were curious about leveraging natural language processing to analyze how news coverage has changed over the last decade. Specifically, we wanted to find out if news outlets have become more negative in their reporting and coverage, and if they have begun to use titles that misrepresent a story to gain interactions. We decided to take this a step further, and see if such changes in sentiment were correlated with real world effects, such as performance of the financial markets.
+
+To achieve this, we utilize APIs from major news outlets to pull historical articles and run them through a transformer model pretrained to analyze and classify sentiment as **POSITVIE or NEGATIVE**.
 
 ## Package Requirements
 * requests
