@@ -77,8 +77,6 @@ These are the two CSV files that will be used for downstream analysis.
 ## Basic Statistical Analysis
 Make sure that _nyt_sentiment.csv_ is in the same directory as _nyt_stats.py_. Then run ```python3 nyt_stats.py```. This will output the Ordinary Least Square Regression report and the seabron plots.
 
-## Jaxon's section
-
 ## Dashboard Overview
 The purpose of the dashboard is to create an interactive way for users to manipulate the data. The dashboard displays three charts. 
 
@@ -157,4 +155,4 @@ dcc.Dropdown(
 
 - Update charts using inputs
 
-- The process_data_rev8 script handles the data manipulation to update the plots! 
+- The process_data_rev8 script handles the data manipulation to update the plots!
