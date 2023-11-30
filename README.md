@@ -16,6 +16,8 @@ To achieve this, we utilize APIs from major news outlets to pull historical arti
 * time
 * beautifulsoup4
 * transformers
+* seaborn
+* statsmodels.api
 
 
 ## Collecting Data
@@ -58,6 +60,10 @@ In the function above, ensure the file name corresponds to the CSV file you wish
 After confirming you are running the correct CSV files through the pipeline, simply run ```python3 sentiment_analysis.py```. This will save two new CSV files to the directory: _nyt_sentiment.csv_ and _guardian_sentiment.csv_.
 
 These are the two CSV files that will be used for downstream analysis.
+
+------
+## Basic Statistical Analysis
+Make sure that _nyt_sentiment.csv_ is in the same directory as _nyt_stats.py_. Then run ```python3 nyt_stats.py```. This will output the Ordinary Least Square Regression report and the seabron plots.
 
 ## Jaxon's section
 
