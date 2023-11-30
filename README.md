@@ -8,6 +8,18 @@ For this project, we were curious about leveraging natural language processing t
 
 To achieve this, we utilize APIs from major news outlets to pull historical articles and run them through a transformer model pretrained to analyze and classify sentiment as **POSITVIE or NEGATIVE**.
 
+------
+## How to run our project
+First install the requirements shown below. Then, please run the files in the order shown below. More information on each file and how to run it is in subsequent sections. Please not that running the _nyt.py_ and _guardian.py_ may take upwards of 2 hours to complete. However, the files they are supposed to output are already included in the repository. Thus, you can skip those if you wish!
+
+1. nyt.py
+2. guardian.py
+3. sentiment_analysis.py
+4. nyt_stats.py
+5. app_rev8.py
+------
+
+
 ## Package Requirements
 * requests
 * json
